@@ -32,7 +32,7 @@ body {
 }
 
 .logo {
-  width: 200px;
+  width: 160px;
   margin-bottom: 1rem;
   animation: flotar 3s infinite ease-in-out;
 }
