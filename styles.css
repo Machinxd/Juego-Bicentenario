@@ -1,22 +1,40 @@
+/* Fondo y partículas */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #b71c1c; /* Rojo sólido patriota */
+  background-color: #b71c1c;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Contenedor blanco */
 .contenedor {
-  background: #ffffff;
-  padding: 3rem 2rem;
+  background: #ffffffcc;
+  backdrop-filter: blur(3px);
+  padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   max-width: 450px;
   width: 90%;
+  z-index: 1;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 1rem;
+  animation: flotar 3s infinite ease-in-out;
 }
 
 h1 {
@@ -31,22 +49,43 @@ p {
   font-size: 1rem;
 }
 
-.botones button {
-  display: block;
-  width: 100%;
-  margin: 10px auto;
-  padding: 1rem;
-  font-size: 1.1rem;
-  background: #ffd600; /* Amarillo fuerte */
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 5px #c7a600;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.3s ease;
+/* Botones tipo tarjetas */
+.botones {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.botones button:hover {
+.proyecto {
+  background-color: white;
+  color: #b71c1c;
+  border: 2px solid #b71c1c;
+  padding: 1rem;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.proyecto:hover {
+  background-color: #b71c1c;
+  color: white;
   transform: scale(1.05);
-  background-color: #ffe066;
-  box-shadow: 0 8px #b89d00;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 1.5rem;
+  }
+  .proyecto {
+    font-size: 1rem;
+  }
 }
