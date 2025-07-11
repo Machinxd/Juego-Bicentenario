@@ -1,59 +1,52 @@
-/* Fondo patriota tipo bandera */
 body {
-  background: linear-gradient(to right, #d32f2f 0%, #ffffff 33%, #ffffff 66%, #d32f2f 100%);
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #b71c1c; /* Rojo sólido patriota */
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Contenedor de cajas */
-.proyectos-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  padding: 2rem;
-}
-
-/* Tarjetas */
-.proyecto {
-  flex: 0 0 calc(40% - 20px);
-  background: #fff;
-  border: 3px solid #b71c1c;
-  border-radius: 15px;
-  padding: 1.5rem;
+.contenedor {
+  background: #ffffff;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: 0 5px 15px rgba(183, 28, 28, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  max-width: 450px;
+  width: 90%;
 }
 
-.proyecto:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.4);
-  background-color: #fce4ec;
-}
-
-/* Título */
-.proyecto h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
+h1 {
   color: #b71c1c;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Descripción */
-.proyecto p {
+p {
   color: #333;
+  margin-bottom: 2rem;
   font-size: 1rem;
 }
 
-/* Móvil */
-@media (max-width: 768px) {
-  .proyecto {
-    flex: 0 0 100%;
-  }
+.botones button {
+  display: block;
+  width: 100%;
+  margin: 10px auto;
+  padding: 1rem;
+  font-size: 1.1rem;
+  background: #ffd600; /* Amarillo fuerte */
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 5px #c7a600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.botones button:hover {
+  transform: scale(1.05);
+  background-color: #ffe066;
+  box-shadow: 0 8px #b89d00;
 }
