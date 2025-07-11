@@ -1,3 +1,16 @@
+/* Fondo patriota tipo bandera */
+body {
+  background: linear-gradient(to right, #d32f2f 0%, #ffffff 33%, #ffffff 66%, #d32f2f 100%);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor de cajas */
 .proyectos-container {
   display: flex;
   flex-wrap: wrap;
@@ -6,6 +19,7 @@
   padding: 2rem;
 }
 
+/* Tarjetas */
 .proyecto {
   flex: 0 0 calc(40% - 20px);
   background: #fff;
@@ -24,17 +38,20 @@
   background-color: #fce4ec;
 }
 
+/* Título */
 .proyecto h3 {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: #b71c1c;
 }
 
+/* Descripción */
 .proyecto p {
   color: #333;
   font-size: 1rem;
 }
 
+/* Móvil */
 @media (max-width: 768px) {
   .proyecto {
     flex: 0 0 100%;
