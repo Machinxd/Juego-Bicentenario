@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url('../assets/fondo.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+.contenedor {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+.personaje {
+  width: 150px;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.botones button {
+  display: block;
+  width: 80%;
+  margin: 1rem auto;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #FFD700;
+  color: #000;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.botones button:hover {
+  background-color: #FFA500;
+}
