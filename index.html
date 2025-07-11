@@ -20,10 +20,24 @@
     </div>
   </div>
 
+  <!-- ✅ JavaScript correctamente insertado -->
   <script>
     function ir(pagina) {
       window.location.href = pagina;
     }
+
+    const body = document.body;
+    let colorStep = 0;
+
+    setInterval(() => {
+      const r = 183 + Math.floor(Math.sin(colorStep) * 20);
+      const g = 28 + Math.floor(Math.sin(colorStep + 1) * 5);
+      const b = 28 + Math.floor(Math.sin(colorStep + 2) * 5);
+
+      body.style.backgroundColor = `rgb(${r},${g},${b})`;
+      colorStep += 0.05;
+    }, 50);
   </script>
 </body>
 </html>
+
