@@ -5,31 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Niño Patriota</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Partículas -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body>
-  <!-- Contenedor de partículas -->
+  <!-- Partículas -->
   <div id="particles-js"></div>
 
   <!-- Contenido principal -->
   <div class="contenedor">
     <img src="assets/nino.png" alt="Niño Patriota" class="logo">
-    <h1>Aventuras del Niño Patriota</h1>
-    <p>Explora minijuegos y conviértete en un verdadero héroe del bicentenario</p>
+    <h1>¡Aventuras del Niño Patriota!</h1>
+    <p>Explora minijuegos y conviértete en un verdadero héroe del bicentenario 🇵🇪</p>
 
     <div class="botones">
-      <div class="proyecto" onclick="ir('quiz.html')">🧠 Quiz Patriota</div>
-      <div class="proyecto" onclick="ir('lecturas.html')">📚 Lecturas</div>
-      <div class="proyecto" onclick="ir('economia.html')">💰 Economía</div>
-      <div class="proyecto" onclick="ir('plantas.html')">🌱 Cuidar Plantas</div>
+      <div class="proyecto" onclick="vibrar(); ir('quiz.html')">🧠 Quiz Patriota</div>
+      <div class="proyecto" onclick="vibrar(); ir('lecturas.html')">📚 Lecturas</div>
+      <div class="proyecto" onclick="vibrar(); ir('economia.html')">💰 Economía</div>
+      <div class="proyecto" onclick="vibrar(); ir('plantas.html')">🌱 Cuidar Plantas</div>
     </div>
   </div>
 
-  <!-- Script JS -->
+  <!-- Scripts -->
   <script>
     function ir(pagina) {
       window.location.href = pagina;
+    }
+
+    function vibrar() {
+      if (navigator.vibrate) {
+        navigator.vibrate(50); // vibra 50ms
+      }
     }
 
     const body = document.body;
