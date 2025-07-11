@@ -20,7 +20,7 @@ body {
 
 /* Contenedor blanco */
 .contenedor {
-  background: #ffffffcc;
+  background: #ffffff;
   backdrop-filter: blur(3px);
   padding: 2rem;
   border-radius: 20px;
