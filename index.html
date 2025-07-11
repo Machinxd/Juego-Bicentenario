@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Niño Patriota Bicentenario</title>
+  <title>Niño Patriota</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="contenedor">
-    <img src="assets/niño.png" alt="Niño Patriota" class="personaje animar-entrada">
-    <h1 class="titulo animar-entrada">Aventuras del Niño Patriota</h1>
-    <p class="descripcion">Explora minijuegos y conviértete en un verdadero héroe del bicentenario</p>
+    <img src="assets/nino.png" alt="Niño Patriota" class="logo">
+    <h1>¡Aventuras del Niño Patriota!</h1>
+    <p>Explora minijuegos y conviértete en un verdadero héroe del bicentenario 🇵🇪</p>
 
     <div class="botones">
-      <button class="btn-animado" onclick="ir('quiz.html')">🧠 Quiz Patriota</button>
-      <button class="btn-animado" onclick="ir('lecturas.html')">📚 Lecturas</button>
-      <button class="btn-animado" onclick="ir('economia.html')">💰 Economía</button>
-      <button class="btn-animado" onclick="ir('plantas.html')">🌱 Cuidar Plantas</button>
+      <button onclick="ir('quiz.html')">🧠 Quiz Patriota</button>
+      <button onclick="ir('lecturas.html')">📚 Lecturas</button>
+      <button onclick="ir('economia.html')">💰 Economía</button>
+      <button onclick="ir('plantas.html')">🌱 Cuidar Plantas</button>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script>
+    function ir(pagina) {
+      window.location.href = pagina;
+    }
+  </script>
 </body>
 </html>
