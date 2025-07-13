@@ -4,22 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quiz Patriota</title>
-  <link rel="stylesheet" href="quiz.css" />
+  <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-  <div class="contenedor">
+  <div class="quiz-container">
     <h1>🧠 Quiz Patriota</h1>
-    <div id="quiz-container">
+    <div id="quiz-box">
       <p id="pregunta"></p>
       <div id="opciones"></div>
-      <button id="siguiente">Siguiente</button>
     </div>
-
-    <div id="resultado" class="oculto">
-      <h2>¡Terminaste el quiz!</h2>
-      <p id="puntaje"></p>
-      <button onclick="location.href='index.html'">🏠 Volver al inicio</button>
-    </div>
+    <div id="resultado" class="oculto"></div>
   </div>
 
   <script src="quiz.js"></script>
