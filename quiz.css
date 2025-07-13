@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #b71c1c;
+  background-image: radial-gradient(#d32f2f 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.contenedor {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(183, 28, 28, 0.7);
+}
+
+h1 {
+  color: #b71c1c;
+}
+
+button {
+  background: white;
+  border: 2px solid #b71c1c;
+  color: #b71c1c;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #b71c1c;
+  color: white;
+}
+
+#opciones button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.oculto {
+  display: none;
+}
