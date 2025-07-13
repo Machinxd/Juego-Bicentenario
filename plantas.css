@@ -23,7 +23,7 @@ body {
 .juego {
   position: relative;
   width: 100%;
-  height: 220px;
+  height: 360px;
   margin: 20px auto;
   background-image: url('arbol-fondo.png'); /* usa tu imagen aquí */
   background-size: cover;
