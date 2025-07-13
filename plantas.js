@@ -1,43 +1,54 @@
-let etapa = 1;
+const contenedor = document.getElementById("juego");
+const contadorEl = document.getElementById("contador");
+const mensajeEl = document.getElementById("mensaje");
 
-function accion(tipo) {
-  const planta = document.getElementById("planta");
-  const mensaje = document.getElementById("mensaje");
+let basuraEliminada = parseInt(localStorage.getItem("basuraEliminada")) || 0;
+contadorEl.textContent = basuraEliminada;
 
-  if (etapa >= 4) {
-    mensaje.textContent = "¡Tu planta ya está completamente crecida!";
-    return;
+function generarBasuraAleatoria(cantidad = 5) {
+  contenedor.innerHTML = ''; // Limpia lo anterior
+  mensajeEl.classList.add("oculto");
+
+  for (let i = 0; i < cantidad; i++) {
+    const basura = document.createElement("img");
+    basura.src = "assets/basura.png"; // Asegúrate de tener esta imagen
+    basura.className = "basura";
+    basura.style.top = `${Math.random() * 80 + 10}%`;
+    basura.style.left = `${Math.random() * 80 + 10}%`;
+    basura.onclick = () => eliminarBasura(basura);
+    contenedor.appendChild(basura);
   }
 
-  switch (tipo) {
-    case "agua":
-      if (etapa === 1) {
-        etapa++;
-        planta.src = "assets/planta2.png";
-        mensaje.textContent = "¡La planta ha sido regada!";
-      } else {
-        mensaje.textContent = "Eso no era lo que necesitaba ahora.";
-      }
-      break;
-
-    case "sol":
-      if (etapa === 2) {
-        etapa++;
-        planta.src = "assets/planta3.png";
-        mensaje.textContent = "¡La planta recibió luz solar!";
-      } else {
-        mensaje.textContent = "Eso no era lo que necesitaba ahora.";
-      }
-      break;
-
-    case "limpiar":
-      if (etapa === 3) {
-        etapa++;
-        planta.src = "assets/planta4.png";
-        mensaje.textContent = "¡La planta está limpia y feliz!";
-      } else {
-        mensaje.textContent = "Eso no era lo que necesitaba ahora.";
-      }
-      break;
-  }
+  const arbol = document.createElement("img");
+  arbol.src = "assets/arbol.png"; // Tu imagen de árbol
+  arbol.className = "arbol";
+  contenedor.appendChild(arbol);
 }
+
+function eliminarBasura(el) {
+  el.classList.add("quitar");
+  el.addEventListener("animationend", () => {
+    el.remove();
+    basuraEliminada++;
+    localStorage.setItem("basuraEliminada", basuraEliminada);
+    contadorEl.textContent = basuraEliminada;
+
+    if (!document.querySelector(".basura")) {
+      mensajeEl.textContent = "¡Árbol limpio! 🌳 Gracias por ayudar.";
+      mensajeEl.classList.remove("oculto");
+    }
+  });
+}
+
+document.getElementById("reiniciar").onclick = () => {
+  generarBasuraAleatoria();
+};
+
+document.getElementById("inicio").onclick = () => {
+  window.location.href = "index.html";
+};
+
+// Inicia al cargar
+window.onload = () => {
+  generarBasuraAleatoria();
+};
