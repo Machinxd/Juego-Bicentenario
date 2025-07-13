@@ -72,7 +72,6 @@ function mostrarPregunta() {
     preguntaEl.textContent = actual.pregunta;
     opcionesEl.innerHTML = "";
 
-    // Mezclar opciones
     const indices = actual.opciones.map((_, i) => i);
     mezclarArray(indices);
 
@@ -103,6 +102,8 @@ function mostrarResultado() {
       <h2>¡Completaste el Quiz Patriota!</h2>
       <p>Tu puntaje: ${puntaje} / ${preguntas.length}</p>
       <p>${puntaje >= 7 ? "¡Excelente, eres todo un patriota!" : "¡Sigue aprendiendo para ser un héroe del Perú!"}</p>
+      <br>
+      <a href="index.html" style="display:inline-block; background:#b71c1c; color:white; padding:10px 20px; border-radius:10px; text-decoration:none; font-weight:bold;">Volver al inicio</a>
     </div>
   `;
 }
