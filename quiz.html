@@ -4,11 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quiz Patriota</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
+  <div id="particles-js"></div>
+
   <div class="quiz-container">
-    <h1>🧠 Quiz Patriota</h1>
+    <h1>🧠 <span>Quiz Patriota</span></h1>
     <div id="quiz-box">
       <p id="pregunta"></p>
       <div id="opciones"></div>
@@ -17,5 +20,9 @@
   </div>
 
   <script src="quiz.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json');
+  </script>
 </body>
 </html>
