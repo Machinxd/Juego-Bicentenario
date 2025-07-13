@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #b71c1c;
+  background-image: radial-gradient(#d32f2f 1px, transparent 1px);
+  background-size: 40px 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-economia {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 25px rgba(183, 28, 28, 0.6);
+  border: 2px solid #b71c1c;
+}
+
+h1 {
+  color: #b71c1c;
+  margin-bottom: 1rem;
+}
+
+#situacion {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+#opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#opciones button {
+  background-color: white;
+  color: #b71c1c;
+  border: 2px solid #b71c1c;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#opciones button:hover {
+  background-color: #b71c1c;
+  color: white;
+}
+
+#resultado {
+  margin-top: 20px;
+  font-size: 1.1rem;
+}
+
+.oculto {
+  display: none;
+}
