@@ -7,7 +7,7 @@ function actualizarContador() {
 function generarBasura() {
   const basurasContainer = document.getElementById("basuras");
   const basura = document.createElement("img");
-  basura.src = "basura.png"; // usa tu propia imagen
+  basura.src = "basura1.png"; // usa tu propia imagen
   basura.classList.add("basura");
 
   const x = Math.random() * (basurasContainer.offsetWidth - 40);
