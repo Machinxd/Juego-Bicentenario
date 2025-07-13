@@ -2,70 +2,81 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #dcedc8;
+  background-color: #b71c1c;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .contenedor {
-  text-align: center;
   background: #fff;
+  border: 2px solid #b71c1c;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0, 128, 0, 0.4);
-  width: 90%;
-  max-width: 500px;
+  text-align: center;
+  max-width: 600px;
+  width: 95%;
+  box-shadow: 0 0 25px rgba(183, 28, 28, 0.6);
 }
 
 .juego {
   position: relative;
   width: 100%;
-  height: 300px;
-  margin-top: 20px;
-  background: #c8e6c9;
-  border-radius: 10px;
+  height: 320px;
+  margin: 20px auto;
+  background-image: url('arbol-fondo.png'); /* usa tu imagen aquí */
+  background-size: cover;
+  background-position: center bottom;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-.arbol {
+#basuras {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 100px; /* Zona baja donde puede aparecer la basura */
+  z-index: 2;
+  pointer-events: none;
 }
 
 .basura {
-  width: 30px;
-  height: 30px;
   position: absolute;
+  width: 40px;
+  height: 40px;
+  pointer-events: all;
   cursor: pointer;
-  animation: flotar 0.4s ease;
+  transition: transform 0.2s;
+  animation: aparecer 0.3s ease-out;
 }
 
-@keyframes flotar {
-  from {
-    transform: scale(0.2);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.basura:hover {
+  transform: scale(1.2);
 }
 
 button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: none;
-  background-color: #4caf50;
+  background-color: #b71c1c;
   color: white;
+  border: none;
+  padding: 12px 18px;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #388e3c;
+  background-color: #9f1a1a;
+}
+
+#contador {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
 }
