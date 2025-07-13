@@ -2,23 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cuidar Plantas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Cuidar el Árbol</title>
   <link rel="stylesheet" href="plantas.css" />
 </head>
 <body>
-  <div class="contenedor-plantas">
-    <h1>🌱 Cuida tu Planta</h1>
-    <img src="assets/planta1.png" id="planta" alt="Planta" />
-    <div class="botones">
-      <button onclick="accion('agua')">💧 Regar</button>
-      <button onclick="accion('sol')">☀️ Dar Sol</button>
-      <button onclick="accion('limpiar')">🧽 Limpiar</button>
+  <div class="contenedor">
+    <h1>🌳 Basura Eliminada: <span id="contador">0</span></h1>
+    <div class="arbol-zona">
+      <img src="assets/arbol.png" alt="Árbol" class="arbol">
+      <div id="basura-contenedor"></div>
     </div>
-    <p id="mensaje">Haz crecer tu planta cuidándola bien.</p>
-    <button onclick="window.location.href='index.html'" class="inicio">🏠 Volver al inicio</button>
   </div>
-
   <script src="plantas.js"></script>
 </body>
 </html>
