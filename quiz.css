@@ -19,24 +19,23 @@ body {
   z-index: -1;
 }
 
-/* Contenedor principal horizontal */
+/* Contenedor vertical compacto */
 .quiz-container {
   background: #ffffff;
-  padding: 2rem 3rem;
+  padding: 1.5rem 2rem;
   border-radius: 20px;
   width: 95%;
-  max-width: 900px;
-  min-height: 300px;
+  max-width: 600px;
+  min-height: auto;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
   box-shadow: 0 0 20px rgba(183, 28, 28, 0.6);
   animation: entrada 0.6s ease-out;
-  gap: 2rem;
+  gap: 1rem;
 }
 
-/* Animación de entrada */
 @keyframes entrada {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
@@ -44,25 +43,24 @@ body {
 
 /* Pregunta */
 .quiz-texto {
-  flex: 1;
-  text-align: left;
+  text-align: center;
+  font-family: 'Georgia', serif;
 }
 
 .quiz-texto h1 {
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: #b71c1c;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 #pregunta {
   font-size: 1.2rem;
-  margin-bottom: 1.5rem;
   color: #333;
+  margin-bottom: 1rem;
 }
 
 /* Opciones */
 #opciones {
-  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -72,11 +70,12 @@ body {
   background-color: white;
   border: 2px solid #b71c1c;
   color: #b71c1c;
-  padding: 12px;
+  padding: 10px;
   border-radius: 12px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
+  font-size: 1rem;
   width: 100%;
 }
 
@@ -86,26 +85,28 @@ body {
 }
 
 #resultado {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #333;
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
-  width: 100%;
 }
 
 .oculto {
   display: none;
 }
 
-/* Responsive en móviles */
+/* Responsive para móviles */
 @media (max-width: 768px) {
   .quiz-container {
-    flex-direction: column;
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
-  .quiz-texto {
-    text-align: center;
+  .quiz-texto h1 {
+    font-size: 1.5rem;
+  }
+
+  #pregunta {
+    font-size: 1.05rem;
   }
 
   #opciones button {
