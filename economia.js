@@ -148,3 +148,4 @@ window.onload = () => {
   mezclarArray(situaciones);
   mostrarSituacion();
 };
+document.getElementById("volver-inicio").classList.remove("oculto");
