@@ -9,17 +9,23 @@
 <body>
   <div class="contenedor-economia">
     <h1>💰 Juego de Economía</h1>
+    
     <div id="situacion"></div>
     <div id="opciones"></div>
 
-    <!-- Reflexión que se muestra cuando fallas -->
+    <!-- Reflexión -->
     <p id="reflexion" class="oculto"></p>
 
-    <!-- Botón para avanzar -->
+    <!-- Botón siguiente -->
     <button id="siguiente" class="oculto" onclick="siguientePregunta()">Siguiente</button>
 
     <!-- Resultado final -->
     <div id="resultado" class="oculto"></div>
+
+    <!-- Botón para volver al inicio -->
+    <button id="volver-inicio" class="oculto" onclick="location.href='index.html'" style="margin-top: 20px; padding: 10px 20px; background: #b71c1c; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold;">
+      🏠 Volver al Inicio
+    </button>
   </div>
 
   <script src="economia.js"></script>
