@@ -5,7 +5,7 @@ body {
   background-color: #b71c1c;
   background-image: radial-gradient(#d32f2f 1px, transparent 1px);
   background-size: 40px 40px;
-  min-height: 100vh; /* Cambio aquí */
+  min-height: 100vh;
   height: auto;
   overflow-x: hidden;
   display: flex;
@@ -20,7 +20,6 @@ body {
   z-index: -1;
 }
 
-/* Contenedor principal vertical y más angosto */
 .quiz-container {
   background: #ffffff;
   padding: 1.5rem 2rem;
@@ -41,7 +40,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Pregunta centrada */
 .quiz-texto {
   text-align: center;
   font-family: 'Georgia', serif;
@@ -68,7 +66,6 @@ body {
   padding: 0 10px;
 }
 
-/* Opciones */
 #opciones {
   width: 100%;
   display: flex;
@@ -88,8 +85,7 @@ body {
   transition: all 0.3s ease;
   font-size: 1rem;
   width: 100%;
-  max-width: 100%;
-  white-space: normal; /* Permite salto de línea */
+  white-space: normal;
   text-align: center;
 }
 
@@ -101,8 +97,24 @@ body {
 #resultado {
   font-size: 1.1rem;
   color: #333;
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
+}
+
+#resultado a {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #b71c1c;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+#resultado a:hover {
+  background-color: #d32f2f;
 }
 
 .oculto {
