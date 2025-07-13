@@ -87,7 +87,7 @@ function mostrarResultado() {
   document.getElementById("quiz-box").classList.add("oculto");
   resultadoEl.classList.remove("oculto");
   resultadoEl.innerHTML = `
-    <h2>¡Completaste el Quiz Patriota! 🇵🇪</h2>
+    <h2>¡Completaste el Quiz Patriota!</h2>
     <p>Tu puntaje: ${puntaje} / ${preguntas.length}</p>
     <p>${puntaje >= 7 ? "¡Excelente, eres todo un patriota!" : "¡Sigue aprendiendo para ser un héroe del Perú!"}</p>
   `;
