@@ -1,66 +1,75 @@
+/* plantas.css */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #b71c1c;
-  background-image: radial-gradient(#d32f2f 1px, transparent 1px);
+  background-color: #d0f0c0;
+  background-image: radial-gradient(#b2dfdb 1px, transparent 1px);
   background-size: 40px 40px;
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-}
-
-.contenedor-plantas {
-  background: #fff;
-  text-align: center;
-  padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 0 25px rgba(183, 28, 28, 0.6);
-  border: 2px solid #b71c1c;
-  width: 90%;
-  max-width: 450px;
+  min-height: 100vh;
 }
 
 h1 {
-  color: #b71c1c;
+  color: #2e7d32;
+  margin: 1rem;
+}
+
+#contador {
+  font-size: 1.2rem;
+  color: #388e3c;
   margin-bottom: 1rem;
 }
 
-img {
-  width: 150px;
-  transition: transform 0.3s ease;
+#juego {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: #a5d6a7;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
 }
 
-.botones {
-  margin: 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+#arbol {
+  width: 120px;
+  height: auto;
+}
+
+.basura {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('assets/basura.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  animation: aparecer 0.3s ease;
+}
+
+@keyframes aparecer {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 button {
-  background-color: #b71c1c;
+  margin: 20px;
+  background-color: #2e7d32;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 10px 16px;
   border-radius: 10px;
-  font-weight: bold;
   cursor: pointer;
+  font-weight: bold;
   transition: 0.3s;
 }
 
 button:hover {
-  background-color: #a01818;
-}
-
-.inicio {
-  margin-top: 15px;
-  background-color: #444;
-}
-
-#mensaje {
-  font-size: 1rem;
-  margin-top: 10px;
-  color: #333;
+  background-color: #1b5e20;
 }
