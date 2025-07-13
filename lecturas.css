@@ -5,7 +5,7 @@ body {
   background-color: #b71c1c;
   background-image: radial-gradient(#d32f2f 1px, transparent 1px);
   background-size: 40px 40px;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
