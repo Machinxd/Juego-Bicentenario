@@ -58,8 +58,24 @@ function mostrarResultado() {
   const resultado = document.getElementById("resultado");
   resultado.classList.remove("oculto");
   resultado.innerHTML = `
-    <h2>¡Has completado la lectura! 📖</h2>
-    <p>Tu puntaje: ${puntaje} / ${preguntas.length}</p>
-    <p>${puntaje === preguntas.length ? "¡Excelente! Eres un verdadero patriota." : "¡Buen intento! Puedes volver a leer y reforzar."}</p>
+    <div style="text-align: center;">
+      <h2>¡Has completado la lectura! 📖</h2>
+      <p>Tu puntaje: ${puntaje} / ${preguntas.length}</p>
+      <p>${puntaje === preguntas.length
+        ? "¡Excelente! Eres un verdadero patriota."
+        : "¡Buen intento! Puedes volver a leer y reforzar."}</p>
+      <br>
+      <button onclick="location.href='index.html'" style="
+        background-color: #b71c1c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+      ">
+        ⬅️ Volver al Inicio
+      </button>
+    </div>
   `;
 }
