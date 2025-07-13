@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lecturas Patriotas</title>
+  <link rel="stylesheet" href="lecturas.css">
+</head>
+<body>
+  <div class="contenedor-lectura">
+    <h1>📖 Lectura Patriota</h1>
+
+    <div id="lectura">
+      <p>
+        El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú.
+        Con el pueblo reunido, alzó la bandera peruana y dijo las históricas palabras: “El Perú es desde este momento libre e independiente
+        por la voluntad general de los pueblos y por la justicia de su causa que Dios defiende”.
+        Fue un momento clave en la historia del país, marcando el fin del dominio colonial español y el nacimiento de una nueva nación soberana.
+      </p>
+      <button onclick="iniciarPreguntas()">Comenzar Preguntas</button>
+    </div>
+
+    <div id="preguntas" class="oculto">
+      <p id="pregunta-texto"></p>
+      <div id="opciones"></div>
+    </div>
+
+    <div id="resultado" class="oculto"></div>
+  </div>
+
+  <script src="lecturas.js"></script>
+</body>
+</html>
