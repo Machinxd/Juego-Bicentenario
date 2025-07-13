@@ -1,3 +1,4 @@
+/* Fondo animado patriótico */
 body {
   margin: 0;
   padding: 0;
@@ -5,14 +6,15 @@ body {
   background-color: #b71c1c;
   background-image: radial-gradient(#d32f2f 1px, transparent 1px);
   background-size: 40px 40px;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Contenedor del juego */
 .contenedor-economia {
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 20px;
   max-width: 600px;
@@ -22,43 +24,113 @@ body {
   border: 2px solid #b71c1c;
 }
 
+/* Título */
 h1 {
   color: #b71c1c;
   margin-bottom: 1rem;
+  font-family: 'Bungee', sans-serif;
 }
 
+/* Pregunta o situación */
 #situacion {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
+  color: #333;
 }
 
+/* Botones de opciones */
 #opciones {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 #opciones button {
   background-color: white;
   color: #b71c1c;
   border: 2px solid #b71c1c;
-  border-radius: 10px;
-  padding: 10px;
+  border-radius: 12px;
+  padding: 12px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 #opciones button:hover {
   background-color: #b71c1c;
   color: white;
+  transform: scale(1.03);
 }
 
+/* Reflexión */
+#reflexion {
+  margin-top: 15px;
+  font-style: italic;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Botón de siguiente */
+#siguiente {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #b71c1c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+#siguiente:hover {
+  background-color: #a11212;
+  transform: scale(1.05);
+}
+
+/* Resultado final */
 #resultado {
   margin-top: 20px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: #222;
 }
 
+/* Botón volver al inicio */
+#volver-inicio {
+  margin-top: 25px;
+  padding: 10px 18px;
+  background-color: #fff;
+  color: #b71c1c;
+  border: 2px solid #b71c1c;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#volver-inicio:hover {
+  background-color: #b71c1c;
+  color: white;
+}
+
+/* Ocultar elementos */
 .oculto {
   display: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .contenedor-economia {
+    padding: 1.5rem;
+  }
+
+  #opciones button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
 }
