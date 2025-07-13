@@ -52,6 +52,7 @@ button:hover {
   background-color: #a01818;
 }
 
+/* Estilos para las opciones de preguntas */
 #opciones {
   display: flex;
   flex-direction: column;
@@ -70,6 +71,29 @@ button:hover {
   color: white;
 }
 
+/* Resultado final centrado */
+#resultado {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
 .oculto {
   display: none;
+}
+
+/* Botón de volver al inicio */
+#resultado button {
+  margin-top: 20px;
+  background-color: #b71c1c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#resultado button:hover {
+  background-color: #a01818;
 }
