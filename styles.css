@@ -1,14 +1,19 @@
 /* Fondo rojo animado con textura */
 body {
   margin: 0;
+  padding: 0;
   padding: 40px 20px;
   font-family: 'Poppins', sans-serif;
   background-color: #b71c1c;
   background-image: radial-gradient(#d32f2f 1px, transparent 1px);
   background-size: 40px 40px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   overflow-x: hidden;
 }
-
 
 /* Partículas */
 #particles-js {
