@@ -19,17 +19,16 @@ body {
   z-index: -1;
 }
 
-/* Contenedor vertical compacto */
+/* Contenedor principal vertical y más angosto */
 .quiz-container {
   background: #ffffff;
   padding: 1.5rem 2rem;
   border-radius: 20px;
   width: 95%;
-  max-width: 600px;
-  min-height: auto;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   box-shadow: 0 0 20px rgba(183, 28, 28, 0.6);
   animation: entrada 0.6s ease-out;
@@ -41,29 +40,32 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Pregunta */
+/* Pregunta centrada */
 .quiz-texto {
   text-align: center;
   font-family: 'Georgia', serif;
+  width: 100%;
 }
 
 .quiz-texto h1 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: #b71c1c;
   margin-bottom: 0.5rem;
 }
 
 #pregunta {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #333;
   margin-bottom: 1rem;
 }
 
 /* Opciones */
 #opciones {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
 #opciones button {
@@ -71,12 +73,13 @@ body {
   border: 2px solid #b71c1c;
   color: #b71c1c;
   padding: 10px;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
   font-size: 1rem;
   width: 100%;
+  max-width: 100%;
 }
 
 #opciones button:hover {
@@ -95,18 +98,18 @@ body {
   display: none;
 }
 
-/* Responsive para móviles */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 480px) {
   .quiz-container {
     padding: 1rem;
   }
 
   .quiz-texto h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   #pregunta {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   #opciones button {
