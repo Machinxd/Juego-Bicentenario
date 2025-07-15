@@ -4,13 +4,190 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lecturas Patriotas</title>
-  <link rel="stylesheet" href="lecturas.css" />
+  <style>
+    body {
+      background-color: #b71c1c;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .contenedor-lectura {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 0 25px rgba(183, 28, 28, 0.6);
+      text-align: center;
+    }
+
+    h2, h3 {
+      color: #b71c1c;
+    }
+
+    button {
+      background-color: #b71c1c;
+      color: white;
+      padding: 10px 20px;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #a01818;
+    }
+
+    .opciones {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 1rem;
+    }
+
+    .opciones button {
+      background: white;
+      color: #b71c1c;
+      border: 2px solid #b71c1c;
+    }
+
+    .opciones button:hover {
+      background-color: #b71c1c;
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <div class="contenedor-lectura" id="contenedor">
     <div id="contenido"></div>
   </div>
 
-  <script src="lecturas.js"></script>
+  <script>
+    const bloques = [
+      {
+        texto: `El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú. Con el pueblo reunido, alzó la bandera peruana y dijo: “El Perú es desde este momento libre e independiente por la voluntad general de los pueblos y por la justicia de su causa que Dios defiende”.`,
+        preguntas: [
+          {
+            pregunta: "¿Quién proclamó la independencia del Perú?",
+            opciones: ["Simón Bolívar", "José de San Martín", "José de la Riva Agüero"],
+            correcta: 1
+          },
+          {
+            pregunta: "¿En qué año se proclamó la independencia?",
+            opciones: ["1824", "1821", "1811"],
+            correcta: 1
+          }
+        ]
+      },
+      {
+        texto: `Simón Bolívar fue un gran libertador sudamericano. Después de San Martín, él asumió el mando militar y político para continuar con la liberación del Perú. En 1824, dirigió la decisiva Batalla de Ayacucho, logrando la derrota definitiva del ejército realista y asegurando la independencia del país.`,
+        preguntas: [
+          {
+            pregunta: "¿Qué batalla fue decisiva en 1824?",
+            opciones: ["Junín", "Ayacucho", "Pichincha"],
+            correcta: 1
+          },
+          {
+            pregunta: "¿Qué papel tuvo Bolívar en la independencia?",
+            opciones: ["Ninguno", "Ayudó a los españoles", "Lideró la batalla final"],
+            correcta: 2
+          }
+        ]
+      },
+      {
+        texto: `José de la Riva Agüero fue el primer presidente del Perú en 1823, aunque no fue elegido democráticamente. Su gobierno marcó el inicio de la vida republicana, aunque enfrentó tensiones políticas y militares. Fue depuesto poco después, pero dejó un precedente como primer jefe de Estado del Perú independiente.`,
+        preguntas: [
+          {
+            pregunta: "¿Quién fue el primer presidente del Perú?",
+            opciones: ["Bolívar", "Riva Agüero", "Castilla"],
+            correcta: 1
+          },
+          {
+            pregunta: "¿En qué año gobernó Riva Agüero?",
+            opciones: ["1821", "1823", "1824"],
+            correcta: 1
+          }
+        ]
+      }
+    ];
+
+    let bloqueActual = 0;
+    let preguntaActual = 0;
+    let puntaje = 0;
+
+    const contenedor = document.getElementById("contenido");
+
+    function mostrarLectura() {
+      const bloque = bloques[bloqueActual];
+      contenedor.innerHTML = `
+        <h2>📘 Lectura Patriota</h2>
+        <p>${bloque.texto}</p>
+        <button onclick="comenzarPreguntas()">Comenzar Preguntas</button>
+      `;
+    }
+
+    function comenzarPreguntas() {
+      mostrarPregunta();
+    }
+
+    function mostrarPregunta() {
+      const bloque = bloques[bloqueActual];
+      const pregunta = bloque.preguntas[preguntaActual];
+
+      let opcionesHTML = "";
+      pregunta.opciones.forEach((op, i) => {
+        opcionesHTML += `<button onclick="verificar(${i})">${op}</button>`;
+      });
+
+      contenedor.innerHTML = `
+        <h3>${pregunta.pregunta}</h3>
+        <div class="opciones">${opcionesHTML}</div>
+      `;
+    }
+
+    function verificar(opcionElegida) {
+      const bloque = bloques[bloqueActual];
+      const pregunta = bloque.preguntas[preguntaActual];
+
+      if (opcionElegida === pregunta.correcta) {
+        puntaje++;
+      }
+
+      preguntaActual++;
+
+      if (preguntaActual < bloque.preguntas.length) {
+        mostrarPregunta();
+      } else {
+        mostrarResultado();
+      }
+    }
+
+    function mostrarResultado() {
+      contenedor.innerHTML = `
+        <h3>✅ Bloque completado</h3>
+        <p>Puntaje actual: ${puntaje}</p>
+        ${
+          bloqueActual + 1 < bloques.length
+            ? `<button onclick="siguienteBloque()">Siguiente Lectura</button>`
+            : `<p>🎉 ¡Completaste todas las lecturas!</p><button onclick="location.href='index.html'">Volver al Inicio</button>`
+        }
+      `;
+    }
+
+    function siguienteBloque() {
+      bloqueActual++;
+      preguntaActual = 0;
+      mostrarLectura();
+    }
+
+    window.onload = mostrarLectura;
+  </script>
 </body>
 </html>
