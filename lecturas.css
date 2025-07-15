@@ -1,32 +1,46 @@
 body {
   margin: 0;
-  padding: 10px;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #b71c1c;
-  background-image: radial-gradient(#d32f2f 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 30px 30px;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
+/* Contenedor de la tarjeta */
 .contenedor-lectura {
   background: #fff;
   color: #333;
   padding: 2rem;
   border-radius: 20px;
-  max-width: 600px;
-  width: 90%;
-  text-align: center;
-  box-shadow: 0 0 25px rgba(183, 28, 28, 0.6);
+  max-width: 700px;
+  width: 95%;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
   border: 2px solid #b71c1c;
+  text-align: center;
+  animation: aparecer 0.5s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 h1 {
   color: #b71c1c;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 p {
@@ -36,28 +50,29 @@ p {
   text-align: justify;
 }
 
+/* Botones generales */
 button {
   background-color: #b71c1c;
   color: white;
   border: none;
-  padding: 12px 18px;
+  padding: 12px 20px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   margin-top: 10px;
-  transition: 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #a01818;
+  background-color: #a31818;
 }
 
-/* Estilos para las opciones de preguntas */
+/* Opciones de preguntas */
 #opciones {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 #opciones button {
@@ -71,7 +86,7 @@ button:hover {
   color: white;
 }
 
-/* Resultado final centrado */
+/* Resultado final */
 #resultado {
   margin-top: 20px;
   font-size: 1.1rem;
@@ -82,18 +97,17 @@ button:hover {
   display: none;
 }
 
-/* Botón de volver al inicio */
-#resultado button {
-  margin-top: 20px;
-  background-color: #b71c1c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
+/* Responsive */
+@media (max-width: 600px) {
+  .contenedor-lectura {
+    padding: 1.2rem;
+  }
 
-#resultado button:hover {
-  background-color: #a01818;
+  p {
+    font-size: 0.95rem;
+  }
+
+  button {
+    width: 100%;
+  }
 }
