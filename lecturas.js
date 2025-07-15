@@ -1,81 +1,76 @@
-const lecturas = [
-  {
-    texto: `El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú. 
-Con el pueblo reunido, alzó la bandera peruana y dijo las históricas palabras: “El Perú es desde este momento libre e independiente
-por la voluntad general de los pueblos y por la justicia de su causa que Dios defiende”.
-Fue un momento clave en la historia del país, marcando el fin del dominio colonial español y el nacimiento de una nueva nación soberana.`,
-    preguntas: [
-      {
-        pregunta: "¿En qué fecha se proclamó la independencia del Perú?",
-        opciones: ["28 de julio de 1821", "28 de julio de 1824", "15 de agosto de 1821"],
-        correcta: 0
-      },
-      {
-        pregunta: "¿Quién proclamó la independencia del Perú?",
-        opciones: ["Simón Bolívar", "José de San Martín", "José de la Riva Agüero"],
-        correcta: 1
-      },
-      {
-        pregunta: "¿Dónde se proclamó la independencia?",
-        opciones: ["Cusco", "Arequipa", "Plaza Mayor de Lima"],
-        correcta: 2
-      }
-    ]
-  },
-  {
-    texto: `Simón Bolívar fue un líder militar y político que luchó por la independencia de varios países de América del Sur.
-En Perú, organizó el ejército libertador y lideró la decisiva Batalla de Junín y la Batalla de Ayacucho en 1824, que aseguraron 
-la independencia definitiva del dominio español. Su visión era unir a las naciones liberadas bajo una sola confederación, 
-aunque no logró consolidarla por completo.`,
-    preguntas: [
-      {
-        pregunta: "¿Qué batallas lideró Bolívar en Perú?",
-        opciones: ["Batalla de Junín y Ayacucho", "Batalla de Lima y Cusco", "Batalla de Tarapacá y Túpac"],
-        correcta: 0
-      },
-      {
-        pregunta: "¿Cuál era el objetivo de Bolívar después de la independencia?",
-        opciones: ["Ser emperador", "Formar una confederación americana", "Retirarse de la política"],
-        correcta: 1
-      },
-      {
-        pregunta: "¿En qué año fue la Batalla de Ayacucho?",
-        opciones: ["1821", "1824", "1827"],
-        correcta: 1
-      }
-    ]
-  },
-  {
-    texto: `José de la Riva Agüero fue el primer presidente del Perú en 1823, aunque no fue elegido democráticamente. 
-Su gobierno fue breve y estuvo marcado por tensiones políticas y militares. A pesar de sus contribuciones iniciales, 
-fue exiliado por sus desacuerdos con el Congreso. Su figura es recordada como parte de los primeros intentos de consolidar 
-una república independiente en el país.`,
-    preguntas: [
-      {
-        pregunta: "¿Quién fue el primer presidente del Perú?",
-        opciones: ["Simón Bolívar", "Ramón Castilla", "José de la Riva Agüero"],
-        correcta: 2
-      },
-      {
-        pregunta: "¿Cómo llegó Riva Agüero al poder?",
-        opciones: ["Por elección popular", "Nombrado por el Congreso", "Por herencia"],
-        correcta: 1
-      },
-      {
-        pregunta: "¿Qué pasó con Riva Agüero después de su mandato?",
-        opciones: ["Fue reelecto", "Fue exiliado", "Fue nombrado virrey"],
-        correcta: 1
-      }
-    ]
-  }
+const cuestionarios = [
+  // Preguntas para Lectura 1 (San Martín)
+  [
+    {
+      pregunta: "¿Qué personaje proclamó la independencia del Perú?",
+      opciones: ["Simón Bolívar", "José de San Martín", "José de la Mar"],
+      correcta: 1
+    },
+    {
+      pregunta: "¿Dónde se proclamó la independencia?",
+      opciones: ["Cusco", "Arequipa", "Plaza Mayor de Lima"],
+      correcta: 2
+    },
+    {
+      pregunta: "¿Qué frase histórica dijo San Martín?",
+      opciones: [
+        "¡Independencia o muerte!",
+        "¡El Perú es libre por voluntad de los pueblos!",
+        "¡Abajo el Virreinato!"
+      ],
+      correcta: 1
+    }
+  ],
+
+  // Preguntas para Lectura 2 (Bolívar)
+  [
+    {
+      pregunta: "¿Cuándo ocurrió la Batalla de Junín?",
+      opciones: ["6 de agosto de 1824", "28 de julio de 1821", "9 de diciembre de 1824"],
+      correcta: 0
+    },
+    {
+      pregunta: "¿Cuál fue la importancia de Bolívar en el Perú?",
+      opciones: ["Organizó fiestas", "Reforzó el ejército patriota", "Fundó colegios"],
+      correcta: 1
+    },
+    {
+      pregunta: "¿Qué batalla consolidó la independencia del Perú?",
+      opciones: ["Pichincha", "Ayacucho", "Carabobo"],
+      correcta: 1
+    }
+  ],
+
+  // Preguntas para Lectura 3 (Bandera y escudo)
+  [
+    {
+      pregunta: "¿Qué representan las franjas rojas de la bandera peruana?",
+      opciones: ["El mar", "La sangre de los héroes", "La flora"],
+      correcta: 1
+    },
+    {
+      pregunta: "¿Qué animal aparece en el escudo del Perú?",
+      opciones: ["Cóndor", "Jaguar", "Vicuña"],
+      correcta: 2
+    },
+    {
+      pregunta: "¿Qué representa la cornucopia en el escudo?",
+      opciones: ["Minerales y riquezas", "Paz y libertad", "Unidad del pueblo"],
+      correcta: 0
+    }
+  ]
 ];
 
-let lecturaActual = 0;
-let preguntaActual = 0;
+let indiceLectura = 0;
+let actual = 0;
 let puntaje = 0;
 
-function iniciarPreguntas() {
-  document.getElementById("lectura").classList.add("oculto");
+function iniciarPreguntas(numLectura) {
+  indiceLectura = numLectura;
+  actual = 0;
+  puntaje = 0;
+
+  document.getElementById("lecturas").classList.add("oculto");
   document.getElementById("preguntas").classList.remove("oculto");
   mostrarPregunta();
 }
@@ -83,10 +78,11 @@ function iniciarPreguntas() {
 function mostrarPregunta() {
   const preguntaEl = document.getElementById("pregunta-texto");
   const opcionesEl = document.getElementById("opciones");
-  const preguntas = lecturas[lecturaActual].preguntas;
 
-  if (preguntaActual < preguntas.length) {
-    const q = preguntas[preguntaActual];
+  const preguntas = cuestionarios[indiceLectura];
+
+  if (actual < preguntas.length) {
+    const q = preguntas[actual];
     preguntaEl.textContent = q.pregunta;
     opcionesEl.innerHTML = "";
 
@@ -97,24 +93,17 @@ function mostrarPregunta() {
       opcionesEl.appendChild(btn);
     });
   } else {
-    lecturaActual++;
-    preguntaActual = 0;
-    if (lecturaActual < lecturas.length) {
-      document.getElementById("preguntas").classList.add("oculto");
-      document.getElementById("lectura").classList.remove("oculto");
-      document.getElementById("lectura").querySelector("p").textContent = lecturas[lecturaActual].texto;
-    } else {
-      mostrarResultado();
-    }
+    mostrarResultado();
   }
 }
 
 function verificar(seleccion) {
-  const correcta = lecturas[lecturaActual].preguntas[preguntaActual].correcta;
-  if (seleccion === correcta) {
+  const preguntas = cuestionarios[indiceLectura];
+
+  if (seleccion === preguntas[actual].correcta) {
     puntaje++;
   }
-  preguntaActual++;
+  actual++;
   mostrarPregunta();
 }
 
@@ -124,11 +113,13 @@ function mostrarResultado() {
   resultado.classList.remove("oculto");
   resultado.innerHTML = `
     <div style="text-align: center;">
-      <h2>¡Has completado todas las lecturas! 📚</h2>
-      <p>Tu puntaje: ${puntaje} / ${lecturas.reduce((acc, l) => acc + l.preguntas.length, 0)}</p>
-      <p>${puntaje >= 7 ? "¡Excelente, eres un verdadero patriota!" : "Sigue practicando para ser un héroe del Perú."}</p>
+      <h2>¡Has completado esta lectura! 📖</h2>
+      <p>Tu puntaje: ${puntaje} / ${cuestionarios[indiceLectura].length}</p>
+      <p>${puntaje === cuestionarios[indiceLectura].length
+        ? "¡Excelente! Eres un verdadero patriota."
+        : "¡Buen intento! Puedes volver a leer y reforzar."}</p>
       <br>
-      <button onclick="location.href='index.html'" style="
+      <button onclick="location.reload()" style="
         background-color: #b71c1c;
         color: white;
         border: none;
@@ -137,13 +128,8 @@ function mostrarResultado() {
         font-weight: bold;
         cursor: pointer;
       ">
-        ⬅️ Volver al Inicio
+        ⬅️ Volver a las Lecturas
       </button>
     </div>
   `;
 }
-
-// Cargar texto de la primera lectura al iniciar
-window.onload = () => {
-  document.querySelector("#lectura p").textContent = lecturas[0].texto;
-};
