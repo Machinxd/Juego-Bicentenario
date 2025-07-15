@@ -3,48 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lecturas Patriotas</title>
+  <title>Lectura Patriota</title>
   <link rel="stylesheet" href="lecturas.css">
 </head>
 <body>
   <div class="contenedor-lectura">
     <h1>📖 Lectura Patriota</h1>
 
-    <div id="lectura">
-      <div class="lectura" id="lectura-0">
-        <p>
-          El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú.
-          Con el pueblo reunido, alzó la bandera peruana y dijo: “El Perú es desde este momento libre e independiente por la voluntad
-          general de los pueblos y por la justicia de su causa que Dios defiende”.
-        </p>
-        <button onclick="iniciarPreguntas(0)">Comenzar Preguntas</button>
+    <div id="contenido">
+      <div id="texto" class="lectura"></div>
+      <div id="preguntas" class="oculto">
+        <p id="pregunta-texto"></p>
+        <div id="opciones"></div>
       </div>
-
-      <div class="lectura" id="lectura-1">
-        <p>
-          Simón Bolívar fue un gran libertador sudamericano. Después de San Martín, él asumió el mando militar y político para continuar
-          con la liberación del Perú. En 1824, dirigió la decisiva Batalla de Ayacucho, logrando la derrota definitiva del ejército realista
-          y asegurando la independencia del país.
-        </p>
-        <button onclick="iniciarPreguntas(1)">Comenzar Preguntas</button>
-      </div>
-
-      <div class="lectura" id="lectura-2">
-        <p>
-          José de la Riva Agüero fue el primer presidente del Perú en 1823, aunque no fue elegido democráticamente. Su gobierno marcó
-          el inicio de la vida republicana, aunque enfrentó tensiones políticas y militares. Fue depuesto poco después, pero dejó
-          un precedente como primer jefe de Estado del Perú independiente.
-        </p>
-        <button onclick="iniciarPreguntas(2)">Comenzar Preguntas</button>
-      </div>
+      <div id="resultado" class="oculto"></div>
+      <button id="btn-continuar" class="oculto" onclick="continuar()">Siguiente</button>
     </div>
-
-    <div id="preguntas" class="oculto">
-      <p id="pregunta-texto"></p>
-      <div id="opciones"></div>
-    </div>
-
-    <div id="resultado" class="oculto"></div>
   </div>
 
   <script src="lecturas.js"></script>
