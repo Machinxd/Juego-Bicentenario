@@ -8,20 +8,60 @@
 </head>
 <body>
   <div class="contenedor-lectura">
-    <h1>📖 Lectura Patriota</h1>
+    <h1>📖 Lecturas Patriotas</h1>
 
-    <div id="lectura">
-      <p id="texto-lectura">
-        <!-- Aquí se cargará la lectura dinámica -->
-      </p>
-      <button onclick="iniciarPreguntas()">Comenzar Preguntas</button>
+    <!-- BLOQUES DE LECTURA -->
+    <div id="lecturas">
+      <!-- Lectura 1 -->
+      <div class="bloque-lectura" data-lectura="0">
+        <p>
+          El 28 de julio de 1821, en la histórica Plaza Mayor de Lima, el general don José de San Martín
+          proclamó la independencia del Perú ante una multitud que anhelaba libertad. Aquel día,
+          San Martín alzó la bandera nacional y pronunció las palabras: “El Perú es desde este momento
+          libre e independiente por la voluntad general de los pueblos y por la justicia de su causa que Dios defiende.”
+          <br><br>
+          Este acto marcó el inicio de una nueva era para los peruanos, dejando atrás más de 300 años
+          de dominio español. San Martín fue recibido como libertador y líder del movimiento independentista.
+        </p>
+        <button onclick="iniciarPreguntas(0)">Comenzar Preguntas</button>
+      </div>
+
+      <!-- Lectura 2 -->
+      <div class="bloque-lectura" data-lectura="1">
+        <p>
+          Simón Bolívar, conocido como el Libertador, llegó al Perú en 1823 para continuar la lucha
+          por la independencia. Su llegada fue crucial, ya que el país aún enfrentaba amenazas del
+          ejército realista. Bolívar reorganizó el ejército patriota y lideró dos batallas fundamentales:
+          <strong>Junín</strong> (6 de agosto de 1824) y <strong>Ayacucho</strong> (9 de diciembre de 1824).
+          <br><br>
+          Gracias a su liderazgo, se logró consolidar la libertad del Perú y de otras naciones de América del Sur.
+          Su legado quedó grabado en la historia como uno de los grandes libertadores del continente.
+        </p>
+        <button onclick="iniciarPreguntas(1)">Comenzar Preguntas</button>
+      </div>
+
+      <!-- Lectura 3 -->
+      <div class="bloque-lectura" data-lectura="2">
+        <p>
+          La bandera del Perú fue creada por José de San Martín durante la campaña libertadora.
+          Se compone de dos franjas rojas verticales y una blanca en el centro. El color rojo
+          representa la sangre derramada por los héroes patrios, mientras que el blanco simboliza
+          la paz, la pureza y la justicia de la causa independentista.
+          <br><br>
+          El escudo del Perú se agregó posteriormente, representando la riqueza natural del país:
+          la vicuña (fauna), el árbol de la quina (flora), y una cornucopia con monedas de oro (recursos minerales).
+        </p>
+        <button onclick="iniciarPreguntas(2)">Comenzar Preguntas</button>
+      </div>
     </div>
 
+    <!-- Sección de preguntas -->
     <div id="preguntas" class="oculto">
       <p id="pregunta-texto"></p>
       <div id="opciones"></div>
     </div>
 
+    <!-- Resultado -->
     <div id="resultado" class="oculto"></div>
   </div>
 
