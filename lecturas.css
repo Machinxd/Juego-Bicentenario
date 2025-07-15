@@ -1,75 +1,57 @@
 body {
-  margin: 0;
-  padding: 10px;
-  font-family: 'Poppins', sans-serif;
   background-color: #b71c1c;
-  background-image: radial-gradient(#d32f2f 1px, transparent 1px);
-  background-size: 40px 40px;
-  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .contenedor-lectura {
-  background: #fff;
-  color: #333;
+  background: white;
   padding: 2rem;
   border-radius: 20px;
   max-width: 600px;
   width: 90%;
-  text-align: center;
   box-shadow: 0 0 25px rgba(183, 28, 28, 0.6);
-  border: 2px solid #b71c1c;
+  text-align: center;
 }
 
-h1 {
+h2, h3 {
   color: #b71c1c;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.6;
-  text-align: justify;
 }
 
 button {
   background-color: #b71c1c;
   color: white;
+  padding: 10px 20px;
+  margin-top: 1rem;
   border: none;
-  padding: 12px 18px;
   border-radius: 10px;
-  font-weight: bold;
   cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
   background-color: #a01818;
 }
 
-#opciones {
+.opciones {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
-#opciones button {
-  background-color: white;
+.opciones button {
+  background: white;
   color: #b71c1c;
   border: 2px solid #b71c1c;
 }
 
-#opciones button:hover {
+.opciones button:hover {
   background-color: #b71c1c;
   color: white;
-}
-
-.oculto {
-  display: none;
 }
