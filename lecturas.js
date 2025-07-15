@@ -1,135 +1,132 @@
-const cuestionarios = [
-  // Preguntas para Lectura 1 (San Martín)
-  [
-    {
-      pregunta: "¿Qué personaje proclamó la independencia del Perú?",
-      opciones: ["Simón Bolívar", "José de San Martín", "José de la Mar"],
-      correcta: 1
-    },
-    {
-      pregunta: "¿Dónde se proclamó la independencia?",
-      opciones: ["Cusco", "Arequipa", "Plaza Mayor de Lima"],
-      correcta: 2
-    },
-    {
-      pregunta: "¿Qué frase histórica dijo San Martín?",
-      opciones: [
-        "¡Independencia o muerte!",
-        "¡El Perú es libre por voluntad de los pueblos!",
-        "¡Abajo el Virreinato!"
-      ],
-      correcta: 1
-    }
-  ],
-
-  // Preguntas para Lectura 2 (Bolívar)
-  [
-    {
-      pregunta: "¿Cuándo ocurrió la Batalla de Junín?",
-      opciones: ["6 de agosto de 1824", "28 de julio de 1821", "9 de diciembre de 1824"],
-      correcta: 0
-    },
-    {
-      pregunta: "¿Cuál fue la importancia de Bolívar en el Perú?",
-      opciones: ["Organizó fiestas", "Reforzó el ejército patriota", "Fundó colegios"],
-      correcta: 1
-    },
-    {
-      pregunta: "¿Qué batalla consolidó la independencia del Perú?",
-      opciones: ["Pichincha", "Ayacucho", "Carabobo"],
-      correcta: 1
-    }
-  ],
-
-  // Preguntas para Lectura 3 (Bandera y escudo)
-  [
-    {
-      pregunta: "¿Qué representan las franjas rojas de la bandera peruana?",
-      opciones: ["El mar", "La sangre de los héroes", "La flora"],
-      correcta: 1
-    },
-    {
-      pregunta: "¿Qué animal aparece en el escudo del Perú?",
-      opciones: ["Cóndor", "Jaguar", "Vicuña"],
-      correcta: 2
-    },
-    {
-      pregunta: "¿Qué representa la cornucopia en el escudo?",
-      opciones: ["Minerales y riquezas", "Paz y libertad", "Unidad del pueblo"],
-      correcta: 0
-    }
-  ]
+const bloques = [
+  {
+    texto: `El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú. 
+    Con el pueblo reunido, alzó la bandera peruana y dijo: “El Perú es desde este momento libre e independiente por la voluntad 
+    general de los pueblos y por la justicia de su causa que Dios defiende”.`,
+    preguntas: [
+      {
+        pregunta: "¿En qué fecha se proclamó la independencia del Perú?",
+        opciones: ["28 de julio de 1821", "28 de julio de 1824", "15 de agosto de 1821"],
+        correcta: 0
+      },
+      {
+        pregunta: "¿Dónde se proclamó la independencia?",
+        opciones: ["Cusco", "Arequipa", "Plaza Mayor de Lima"],
+        correcta: 2
+      }
+    ]
+  },
+  {
+    texto: `Simón Bolívar fue un gran libertador sudamericano. Después de San Martín, él asumió el mando militar y político para continuar 
+    con la liberación del Perú. En 1824, dirigió la decisiva Batalla de Ayacucho, logrando la derrota definitiva del ejército realista 
+    y asegurando la independencia del país.`,
+    preguntas: [
+      {
+        pregunta: "¿Quién dirigió la Batalla de Ayacucho?",
+        opciones: ["José de San Martín", "Simón Bolívar", "Túpac Amaru"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Qué significó la Batalla de Ayacucho?",
+        opciones: ["La independencia definitiva del Perú", "La llegada del virreinato", "El fin de la República"],
+        correcta: 0
+      }
+    ]
+  },
+  {
+    texto: `José de la Riva Agüero fue el primer presidente del Perú en 1823, aunque no fue elegido democráticamente. Su gobierno marcó 
+    el inicio de la vida republicana, aunque enfrentó tensiones políticas y militares. Fue depuesto poco después, pero dejó 
+    un precedente como primer jefe de Estado del Perú independiente.`,
+    preguntas: [
+      {
+        pregunta: "¿Quién fue el primer presidente del Perú?",
+        opciones: ["Simón Bolívar", "José de la Riva Agüero", "Ramón Castilla"],
+        correcta: 1
+      },
+      {
+        pregunta: "¿Cómo fue elegido José de la Riva Agüero?",
+        opciones: ["Por votación popular", "Nombrado por el Congreso", "Elegido por el rey"],
+        correcta: 1
+      }
+    ]
+  }
 ];
 
-let indiceLectura = 0;
-let actual = 0;
+let bloqueActual = 0;
+let preguntaActual = 0;
 let puntaje = 0;
 
-function iniciarPreguntas(numLectura) {
-  indiceLectura = numLectura;
-  actual = 0;
-  puntaje = 0;
+const textoEl = document.getElementById("texto");
+const preguntasEl = document.getElementById("preguntas");
+const preguntaTextoEl = document.getElementById("pregunta-texto");
+const opcionesEl = document.getElementById("opciones");
+const resultadoEl = document.getElementById("resultado");
+const btnContinuar = document.getElementById("btn-continuar");
 
-  document.getElementById("lecturas").classList.add("oculto");
-  document.getElementById("preguntas").classList.remove("oculto");
-  mostrarPregunta();
+function mostrarBloque() {
+  const bloque = bloques[bloqueActual];
+  textoEl.textContent = bloque.texto;
+  preguntasEl.classList.add("oculto");
+  resultadoEl.classList.add("oculto");
+  btnContinuar.classList.add("oculto");
+  textoEl.classList.remove("oculto");
+
+  setTimeout(() => {
+    textoEl.classList.add("oculto");
+    preguntasEl.classList.remove("oculto");
+    preguntaActual = 0;
+    mostrarPregunta();
+  }, 2000); // Espera 2 segundos antes de mostrar preguntas
 }
 
 function mostrarPregunta() {
-  const preguntaEl = document.getElementById("pregunta-texto");
-  const opcionesEl = document.getElementById("opciones");
+  const pregunta = bloques[bloqueActual].preguntas[preguntaActual];
+  preguntaTextoEl.textContent = pregunta.pregunta;
+  opcionesEl.innerHTML = "";
 
-  const preguntas = cuestionarios[indiceLectura];
+  pregunta.opciones.forEach((opcion, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = opcion;
+    btn.onclick = () => verificarRespuesta(i);
+    opcionesEl.appendChild(btn);
+  });
+}
 
-  if (actual < preguntas.length) {
-    const q = preguntas[actual];
-    preguntaEl.textContent = q.pregunta;
-    opcionesEl.innerHTML = "";
+function verificarRespuesta(seleccion) {
+  if (seleccion === bloques[bloqueActual].preguntas[preguntaActual].correcta) {
+    puntaje++;
+  }
 
-    q.opciones.forEach((texto, i) => {
-      const btn = document.createElement("button");
-      btn.textContent = texto;
-      btn.onclick = () => verificar(i);
-      opcionesEl.appendChild(btn);
-    });
+  preguntaActual++;
+  if (preguntaActual < bloques[bloqueActual].preguntas.length) {
+    mostrarPregunta();
   } else {
     mostrarResultado();
   }
 }
 
-function verificar(seleccion) {
-  const preguntas = cuestionarios[indiceLectura];
-
-  if (seleccion === preguntas[actual].correcta) {
-    puntaje++;
-  }
-  actual++;
-  mostrarPregunta();
-}
-
 function mostrarResultado() {
-  document.getElementById("preguntas").classList.add("oculto");
-  const resultado = document.getElementById("resultado");
-  resultado.classList.remove("oculto");
-  resultado.innerHTML = `
-    <div style="text-align: center;">
-      <h2>¡Has completado esta lectura! 📖</h2>
-      <p>Tu puntaje: ${puntaje} / ${cuestionarios[indiceLectura].length}</p>
-      <p>${puntaje === cuestionarios[indiceLectura].length
-        ? "¡Excelente! Eres un verdadero patriota."
-        : "¡Buen intento! Puedes volver a leer y reforzar."}</p>
-      <br>
-      <button onclick="location.reload()" style="
-        background-color: #b71c1c;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-weight: bold;
-        cursor: pointer;
-      ">
-        ⬅️ Volver a las Lecturas
-      </button>
-    </div>
+  preguntasEl.classList.add("oculto");
+  resultadoEl.classList.remove("oculto");
+  resultadoEl.innerHTML = `
+    <p>Has terminado este bloque de preguntas.<br>
+    Puntaje: ${puntaje} / ${(bloques[bloqueActual].preguntas.length * (bloqueActual + 1))}</p>
   `;
+  btnContinuar.classList.remove("oculto");
 }
+
+function continuar() {
+  bloqueActual++;
+  if (bloqueActual < bloques.length) {
+    mostrarBloque();
+  } else {
+    resultadoEl.innerHTML = `
+      <h2>¡Completaste todas las lecturas! 🇵🇪</h2>
+      <p>Puntaje final: ${puntaje} / ${bloques.flatMap(b => b.preguntas).length}</p>
+      <button onclick="location.href='index.html'">Volver al inicio</button>
+    `;
+    btnContinuar.classList.add("oculto");
+  }
+}
+
+window.onload = mostrarBloque;
