@@ -1,51 +1,45 @@
-const bloques = [
+const bloquesLectura = [
   {
-    texto: `El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú. 
-    Con el pueblo reunido, alzó la bandera peruana y dijo: “El Perú es desde este momento libre e independiente por la voluntad 
-    general de los pueblos y por la justicia de su causa que Dios defiende”.`,
+    texto: `El 28 de julio de 1821, en la Plaza Mayor de Lima, el general José de San Martín proclamó la independencia del Perú. Con el pueblo reunido, alzó la bandera peruana y dijo: “El Perú es desde este momento libre e independiente por la voluntad general de los pueblos y por la justicia de su causa que Dios defiende”.`,
     preguntas: [
       {
-        pregunta: "¿En qué fecha se proclamó la independencia del Perú?",
-        opciones: ["28 de julio de 1821", "28 de julio de 1824", "15 de agosto de 1821"],
-        correcta: 0
+        pregunta: "¿Quién proclamó la independencia del Perú?",
+        opciones: ["Simón Bolívar", "José de San Martín", "Túpac Amaru"],
+        correcta: 1
       },
       {
         pregunta: "¿Dónde se proclamó la independencia?",
-        opciones: ["Cusco", "Arequipa", "Plaza Mayor de Lima"],
+        opciones: ["Arequipa", "Cusco", "Plaza Mayor de Lima"],
         correcta: 2
       }
     ]
   },
   {
-    texto: `Simón Bolívar fue un gran libertador sudamericano. Después de San Martín, él asumió el mando militar y político para continuar 
-    con la liberación del Perú. En 1824, dirigió la decisiva Batalla de Ayacucho, logrando la derrota definitiva del ejército realista 
-    y asegurando la independencia del país.`,
+    texto: `Simón Bolívar fue un gran libertador sudamericano. Después de San Martín, él asumió el mando militar y político para continuar con la liberación del Perú. En 1824, dirigió la decisiva Batalla de Ayacucho, logrando la derrota definitiva del ejército realista y asegurando la independencia del país.`,
     preguntas: [
       {
-        pregunta: "¿Quién dirigió la Batalla de Ayacucho?",
-        opciones: ["José de San Martín", "Simón Bolívar", "Túpac Amaru"],
+        pregunta: "¿Qué batalla lideró Simón Bolívar en 1824?",
+        opciones: ["Batalla de Junín", "Batalla de Ayacucho", "Batalla de Lima"],
         correcta: 1
       },
       {
-        pregunta: "¿Qué significó la Batalla de Ayacucho?",
-        opciones: ["La independencia definitiva del Perú", "La llegada del virreinato", "El fin de la República"],
-        correcta: 0
+        pregunta: "¿Qué logró Bolívar con esa batalla?",
+        opciones: ["Capturar Lima", "Conquistar Arequipa", "Asegurar la independencia"],
+        correcta: 2
       }
     ]
   },
   {
-    texto: `José de la Riva Agüero fue el primer presidente del Perú en 1823, aunque no fue elegido democráticamente. Su gobierno marcó 
-    el inicio de la vida republicana, aunque enfrentó tensiones políticas y militares. Fue depuesto poco después, pero dejó 
-    un precedente como primer jefe de Estado del Perú independiente.`,
+    texto: `José de la Riva Agüero fue el primer presidente del Perú en 1823, aunque no fue elegido democráticamente. Su gobierno marcó el inicio de la vida republicana, aunque enfrentó tensiones políticas y militares. Fue depuesto poco después, pero dejó un precedente como primer jefe de Estado del Perú independiente.`,
     preguntas: [
       {
-        pregunta: "¿Quién fue el primer presidente del Perú?",
-        opciones: ["Simón Bolívar", "José de la Riva Agüero", "Ramón Castilla"],
+        pregunta: "¿En qué año fue presidente José de la Riva Agüero?",
+        opciones: ["1821", "1823", "1825"],
         correcta: 1
       },
       {
-        pregunta: "¿Cómo fue elegido José de la Riva Agüero?",
-        opciones: ["Por votación popular", "Nombrado por el Congreso", "Elegido por el rey"],
+        pregunta: "¿Fue elegido democráticamente?",
+        opciones: ["Sí", "No"],
         correcta: 1
       }
     ]
@@ -56,77 +50,72 @@ let bloqueActual = 0;
 let preguntaActual = 0;
 let puntaje = 0;
 
-const textoEl = document.getElementById("texto");
-const preguntasEl = document.getElementById("preguntas");
-const preguntaTextoEl = document.getElementById("pregunta-texto");
+const contenedor = document.getElementById("contenedor");
+const preguntaTexto = document.getElementById("pregunta-texto");
 const opcionesEl = document.getElementById("opciones");
-const resultadoEl = document.getElementById("resultado");
-const btnContinuar = document.getElementById("btn-continuar");
 
-function mostrarBloque() {
-  const bloque = bloques[bloqueActual];
-  textoEl.textContent = bloque.texto;
-  preguntasEl.classList.add("oculto");
-  resultadoEl.classList.add("oculto");
-  btnContinuar.classList.add("oculto");
-  textoEl.classList.remove("oculto");
+function iniciarBloque() {
+  contenedor.innerHTML = `
+    <h1>📖 Lectura Patriota</h1>
+    <p>${bloquesLectura[bloqueActual].texto}</p>
+    <button onclick="iniciarPreguntas()">Comenzar Preguntas</button>
+  `;
+}
 
-  setTimeout(() => {
-    textoEl.classList.add("oculto");
-    preguntasEl.classList.remove("oculto");
-    preguntaActual = 0;
-    mostrarPregunta();
-  }, 2000); // Espera 2 segundos antes de mostrar preguntas
+function iniciarPreguntas() {
+  mostrarPregunta();
 }
 
 function mostrarPregunta() {
-  const pregunta = bloques[bloqueActual].preguntas[preguntaActual];
-  preguntaTextoEl.textContent = pregunta.pregunta;
-  opcionesEl.innerHTML = "";
+  const bloque = bloquesLectura[bloqueActual];
+  const pregunta = bloque.preguntas[preguntaActual];
 
-  pregunta.opciones.forEach((opcion, i) => {
+  contenedor.innerHTML = `
+    <p id="pregunta-texto">${pregunta.pregunta}</p>
+    <div id="opciones"></div>
+  `;
+
+  const opcionesEl = document.getElementById("opciones");
+
+  pregunta.opciones.forEach((texto, i) => {
     const btn = document.createElement("button");
-    btn.textContent = opcion;
+    btn.textContent = texto;
     btn.onclick = () => verificarRespuesta(i);
     opcionesEl.appendChild(btn);
   });
 }
 
 function verificarRespuesta(seleccion) {
-  if (seleccion === bloques[bloqueActual].preguntas[preguntaActual].correcta) {
+  const bloque = bloquesLectura[bloqueActual];
+  if (seleccion === bloque.preguntas[preguntaActual].correcta) {
     puntaje++;
   }
 
   preguntaActual++;
-  if (preguntaActual < bloques[bloqueActual].preguntas.length) {
+
+  if (preguntaActual < bloque.preguntas.length) {
     mostrarPregunta();
   } else {
-    mostrarResultado();
+    bloqueActual++;
+    preguntaActual = 0;
+
+    if (bloqueActual < bloquesLectura.length) {
+      iniciarBloque();
+    } else {
+      mostrarResultadoFinal();
+    }
   }
 }
 
-function mostrarResultado() {
-  preguntasEl.classList.add("oculto");
-  resultadoEl.classList.remove("oculto");
-  resultadoEl.innerHTML = `
-    <p>Has terminado este bloque de preguntas.<br>
-    Puntaje: ${puntaje} / ${(bloques[bloqueActual].preguntas.length * (bloqueActual + 1))}</p>
-  `;
-  btnContinuar.classList.remove("oculto");
-}
-
-function continuar() {
-  bloqueActual++;
-  if (bloqueActual < bloques.length) {
-    mostrarBloque();
-  } else {
-    resultadoEl.innerHTML = `
-      <h2>¡Completaste todas las lecturas! 🇵🇪</h2>
-      <p>Puntaje final: ${puntaje} / ${bloques.flatMap(b => b.preguntas).length}</p>
+function mostrarResultadoFinal() {
+  contenedor.innerHTML = `
+    <div style="text-align: center;">
+      <h2>✅ ¡Has completado todas las lecturas!</h2>
+      <p>Puntaje total: ${puntaje} / ${bloquesLectura.reduce((a, b) => a + b.preguntas.length, 0)}</p>
+      <p>${puntaje >= 5 ? "¡Excelente trabajo, patriota!" : "¡Sigue estudiando y lo lograrás!"}</p>
       <button onclick="location.href='index.html'">Volver al inicio</button>
-    `;
-    btnContinuar.classList.add("oculto");
-  }
+    </div>
+  `;
 }
 
-window.onload = mostrarBloque;
+window.onload = iniciarBloque;
